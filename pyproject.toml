@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain-playstore"
+version = "0.1.0"
+description = "LangChain retriever integration for Google Play Store — fetch app details and retrieve user reviews."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Farhan" },
+]
+keywords = ["langchain", "playstore", "google play", "retriever", "rag", "ai", "llm", "reviews"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "langchain-core>=0.2.0",
+    "google-play-scraper>=1.2.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+    "ruff>=0.4.0",
+    "mypy>=1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/urraf/langchain-playstore"
+Repository = "https://github.com/urraf/langchain-playstore"
+Documentation = "https://github.com/urraf/langchain-playstore#readme"
+"Bug Tracker" = "https://github.com/urraf/langchain-playstore/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/langchain_playstore"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
